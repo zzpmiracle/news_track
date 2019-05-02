@@ -120,7 +120,7 @@ def generate_candidate_keyword_scores(phrase_list, word_score):
 
 
 class Rake(object):
-    def __init__(self, stop_words_path='SmartStoplist.txt'):
+    def __init__(self, stop_words_path='RAKE/SmartStoplist.txt'):
         self.stop_words_path = stop_words_path
         self.__stop_words_pattern = build_stop_word_regex(stop_words_path)
 

@@ -1,14 +1,9 @@
 from elasticsearch import Elasticsearch
 
-es = Elasticsearch()
 
-dsl = {
-    'query': {
-        'match': {
-            'title': 'Women in Parliaments'
-        }
-    }
-}
-result = es.search(index='news_track',body=dsl,_source=False)
-print(result)
-import pyhanlp
+from pyhanlp import HanLP
+dst_file_path = 'D:\TREC_v2.txt'
+with open(dst_file_path) as f:
+    line = next(f)
+
+    print(HanLP.extractKeyword(line, 200))
