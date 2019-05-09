@@ -10,7 +10,8 @@ dst_file_path = 'D:\TREC.txt'
 reg = re.compile('<[^>]*>')
 
 num = 0
-# file_writer = open(dst_file_path, 'w')
+#irrelevant according to GuideLines
+irrevelant_kicker = ["Opinion", "Letters to the Editor","The Post's View"]
 
 with open(sourse_file_Path,encoding='UTF-8') as sf,open(dst_file_path, 'w') as df:
     for line in sf :
@@ -18,8 +19,6 @@ with open(sourse_file_Path,encoding='UTF-8') as sf,open(dst_file_path, 'w') as d
         #remove 'type','sourse'
         article.pop('type',None)
         article.pop('source',None)
-
-
         paragraph = []
         for content in article['contents']:
             #few contents are None
@@ -27,18 +26,22 @@ with open(sourse_file_Path,encoding='UTF-8') as sf,open(dst_file_path, 'w') as d
                 # paragraphs
                 if content.get('subtype',None) =='paragraph':
                     if content.get('mime',None) == 'text/plain':
+                        #plain text add to list directly
                         paragraph.append(content['content'])
                     elif content.get('mime',None) == 'text/html':
+                        #remove html style
                         paragraph.append(re.sub(reg,'',content['content']))
                 #kicker,not sure useful
                 elif content.get('type',None)=='kicker':
                         article['kicker'] = content['content']
-        article['contents'] = paragraph
+        if article.get('kicker',None) in irrevelant_kicker:
+            continue
+        article['contents'] = '\n'.join(paragraph)
         df.write(json.dumps(article))
         df.write('\n')
         num += 1
         if num % 10000 == 0:
             print('{} docs completed'.format(num))
-
+print('{} docs remained'.format(num))
 end = time.time()
 print('{:.1f}s'.format(end-start))
