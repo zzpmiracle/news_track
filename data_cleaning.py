@@ -10,7 +10,7 @@ dst_file_path = 'D:\TREC.txt'
 reg = re.compile('<[^>]*>')
 
 num = 0
-#irrelevant according to GuideLines
+#irrelevant kicker according to GuideLines
 irrevelant_kicker = ["Opinion", "Letters to the Editor","The Post's View"]
 
 with open(sourse_file_Path,encoding='UTF-8') as sf,open(dst_file_path, 'w') as df:
@@ -34,14 +34,18 @@ with open(sourse_file_Path,encoding='UTF-8') as sf,open(dst_file_path, 'w') as d
                 #kicker,not sure useful
                 elif content.get('type',None)=='kicker':
                         article['kicker'] = content['content']
+        #remove irrelevant articles
         if article.get('kicker',None) in irrevelant_kicker:
             continue
+        #transform paragraph list to long string
         article['contents'] = '\n'.join(paragraph)
+        #write article to file
         df.write(json.dumps(article))
         df.write('\n')
+        #record number of remain articles
         num += 1
         if num % 10000 == 0:
-            print('{} docs completed'.format(num))
+            print('{} docs completed'.format(num))#
 print('{} docs remained'.format(num))
 end = time.time()
 print('{:.1f}s'.format(end-start))

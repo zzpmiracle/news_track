@@ -23,7 +23,7 @@ for num,search_id in topics.items():
     title = article['title']
     contents = article['contents']
     key_words = rake.run(contents)
-    #get top10 keywords
+    #get top-10 keywords
     if len(key_words)>10:
         key_words = key_words[:10]
     #keywords search
