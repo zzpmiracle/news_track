@@ -40,7 +40,7 @@
 
 ### Result
 
-nearly irrelavant
+nearly irrelevant
 
 ### Next plans
 
