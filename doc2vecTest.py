@@ -7,7 +7,8 @@ stop = set(stopwords.words('english'))
 import re
 import json
 file_path = 'D:\TREC.txt'
-
+import time
+start = time.time()
 def text_Generator(file_path):
     with open(file_path,'r') as file:
         count = 0
@@ -18,12 +19,19 @@ def text_Generator(file_path):
             contents = re.sub('\n','',contents)
             # print(contents)
             # patten = "[.!//_,$&%^*()<>+\"'?@#-|:~{}]+"
-            # contents = re.sub(pattern=patten,repl=' ',string=contents)
-            contents = re.split(r'\W+', contents)
-            print(contents)
+
+            patten = "[\.!//_,$&%^*()<>+\"'?@#-|:~{}]+|[——！\\\\，。=？、：“”‘’《》【】￥……（）]+"
+            punc = '[,.!\'"?$@]'
+
+            contents = re.sub(pattern=punc,repl='',string=contents)
+            # contents = re.split(r3, contents)
+            # print(contents)
             id = article['id']
-            documents = TaggedDocument(contents,id)
-            yield documents
+            documents = TaggedDocument(contents,[str(id)])
+            if count<1000:
+                yield documents
+            else:
+                break
 
 
 class text_iterator():
@@ -37,7 +45,7 @@ class text_iterator():
             for line in file:
                 count += 1
                 article = json.loads(line)
-                documents = TaggedDocument(article['contents'], article['id'])
+                documents = TaggedDocument(article['contents'], [article['id']])
                 if count <= 10000:
                     yield documents
                 else:
@@ -52,9 +60,35 @@ class text_iterator():
         else:
             raise StopIteration
 
-docs_generator = text_Generator(file_path)
-docs_iterator = [x for x in docs_generator]
-# docs_iterator = text_iterator(file_path)
+docs = []
+id_map = {}
+with open(file_path,'r') as file:
+    count = 0
+    for line in file:
+
+        article = json.loads(line)
+        contents = article['contents']
+        contents = re.sub('\n','',contents)
+        # print(contents)
+        # patten = "[.!//_,$&%^*()<>+\"'?@#-|:~{}]+"
+        patten = "[\.!//_,$&%^*()<>+\"'?@#-|:~{}]+|[——！\\\\，。=？、：“”‘’《》【】￥……（）]+"
+        punc = '[,.!\'"?$@]'
+        contents = re.sub(pattern=punc,repl='',string=contents)
+        # contents = re.split(r3, contents)
+        # print(contents)
+        id = article['id']
+        id_map[id] = count
+        document = TaggedDocument(contents,[str(id)])
+        docs.append(document)
+        count += 1
+map_file = 'map.txt'
+with open(map_file,'w') as mf:
+    mf.write(json.dumps(id_map))
+# docs_generator = text_Generator(file_path)
+# docs_iterator = [x for x in docs_generator]
+
 fname = 'vectors.kv'
-model = Doc2Vec(documents=docs_iterator,vector_size=100,window=10,min_count=2)
+model = Doc2Vec(documents=docs,vector_size=100,window=10,min_count=2,workers=10)
 model.save(fname)
+end = time.time()
+print('{:.1f}s'.format(end-start))
