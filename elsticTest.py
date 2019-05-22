@@ -7,7 +7,20 @@ from get_topics import get_topics
 host_ip = '222.20.25.124'
 es = Elasticsearch('222.20.25.124:9200')
 #es= Elasticsearch()
-
+news_sea = {
+  "query":{
+    "more_like_this":{
+      "fields":["title","contents"],
+      "like":[
+        {
+          "_id":"9171debc316e5e2782e0d2404ca7d09d"
+        }
+        ],
+        "min_term_freq":1,
+        "max_query_terms":20
+    }
+  }
+}
 topics = get_topics()
 rake = Rake()
 index = 'news_track'
