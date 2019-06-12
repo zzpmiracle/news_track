@@ -3,22 +3,28 @@ import re
 import string
 import time
 start = time.time()
-
+from elasticsearch import Elasticsearch
 sourse_file_Path = 'D:\TREC_Washington_Post_collection.v2.jl'
-dst_file_path = 'D:\TREC.txt'
+# dst_file_path = 'D:\TREC.txt'
 #match html code
 reg = re.compile('<[^>]*>')
+es = Elasticsearch()
 
 num = 0
 # irrelevant kicker according to GuideLines
-irrelevant_kicker = ["Opinion", "Letters to the Editor","The Post's View"]
+# irrelevant_kicker = ["Opinion", "Letters to the Editor","The Post's View"]
 
-with open(sourse_file_Path,encoding='UTF-8') as sf,open(dst_file_path, 'w') as df:
+with open(sourse_file_Path,encoding='UTF-8') as sf:
     for line in sf :
         article = json.loads(line)
         # remove 'type','source'
         article.pop('type',None)
         article.pop('source',None)
+        article.pop('article_url')
+        article.pop('published_date')
+
+        id = article['id']
+        article.pop('id')
         paragraph = []
         for content in article['contents']:
             # few contents are None
@@ -35,14 +41,12 @@ with open(sourse_file_Path,encoding='UTF-8') as sf,open(dst_file_path, 'w') as d
                 elif content.get('type',None)=='kicker':
                         article['kicker'] = content['content']
         # remove irrelevant articles
-        if article.get('kicker',None) in irrelevant_kicker:
-            continue
+        # if article.get('kicker',None) in irrelevant_kicker:
+        #     continue
         # transform paragraph list to long string
-        article['contents'] = '\n'.join(paragraph)
-        # write article to file
-        df.write(json.dumps(article))
-        df.write('\n')
+        article['contents'] = ''.join(paragraph)
         # record number of remain articles
+        result = es.index(index='news_track',body=article,id=id)
         num += 1
         if num % 10000 == 0:
             print('{} docs completed'.format(num))

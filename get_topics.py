@@ -2,7 +2,6 @@ from bs4 import BeautifulSoup
 import codecs
 import re
 
-
 def get_topics(filename='D:\\news_track\\newsir18-topics.txt',topic_tag = 'top',num_tag='num',id_tag='docid'):
     soup = BeautifulSoup(codecs.open(filename, "r"), "lxml")
     dic = {}
@@ -12,3 +11,6 @@ def get_topics(filename='D:\\news_track\\newsir18-topics.txt',topic_tag = 'top',
         id = topic.findNext(id_tag).text
         dic[num] = id
     return dic
+
+if __name__ == "__main__":
+    get_topics()
