@@ -4,7 +4,7 @@ import string
 import time
 start = time.time()
 from elasticsearch import Elasticsearch
-sourse_file_Path = 'D:\TREC_Washington_Post_collection.v2.jl'
+sourse_file_Path = 'C:\TREC_Washington_Post_collection.v2.jl'
 # dst_file_path = 'D:\TREC.txt'
 #match html code
 reg = re.compile('<[^>]*>')
@@ -46,7 +46,7 @@ with open(sourse_file_Path,encoding='UTF-8') as sf:
         # transform paragraph list to long string
         article['contents'] = ''.join(paragraph)
         # record number of remain articles
-        result = es.index(index='news_track',body=article,id=id)
+        result = es.index(index='news',body=article,id=id)
         num += 1
         if num % 10000 == 0:
             print('{} docs completed'.format(num))

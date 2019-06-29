@@ -44,7 +44,7 @@ mapping ={
     }
 
 }
-# result = es.indices.create(index='news_track',ignore=[400,404])
+# result = es.indices.create(index='news',body=mapping,ignore=[400,404])
 # print(result)
 source_file_path = 'D:\TREC.txt'
 i = 0
