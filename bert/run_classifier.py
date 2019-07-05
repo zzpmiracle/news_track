@@ -26,14 +26,19 @@ import modeling
 import optimization
 import tokenization
 import tensorflow as tf
-model_path = 'D:/news_track\\uncased_L-12_H-768_A-12/'
+
+base_dir = '/home/trec7/zzp/'
+
+model_path = base_dir + 'model/'
+data_dir = base_dir + 'data/'
 flags = tf.flags
 
 FLAGS = flags.FLAGS
 
+
 ## Required parameters
 flags.DEFINE_string(
-    "data_dir", 'D:/news_track',
+    "data_dir", base_dir + 'data',
     "The input data dir. Should contain the .tsv files (or other data files) "
     "for the task.")
 
@@ -48,7 +53,7 @@ flags.DEFINE_string("vocab_file", model_path+'vocab.txt',
                     "The vocabulary file that the BERT model was trained on.")
 
 flags.DEFINE_string(
-    "output_dir", 'D://news_track//model',
+    "output_dir", model_path + 'ouput',
     "The output directory where the model checkpoints will be written.")
 
 ## Other parameters
@@ -63,7 +68,7 @@ flags.DEFINE_bool(
     "models and False for cased models.")
 
 flags.DEFINE_integer(
-    "max_seq_length", 32,
+    "max_seq_length", 128,
     "The maximum total input sequence length after WordPiece tokenization. "
     "Sequences longer than this will be truncated, and sequences shorter "
     "than this will be padded.")
@@ -76,9 +81,9 @@ flags.DEFINE_bool(
     "do_predict", False,
     "Whether to run the model in inference mode on the test set.")
 
-flags.DEFINE_integer("train_batch_size", 8, "Total batch size for training.")
+flags.DEFINE_integer("train_batch_size", 32, "Total batch size for training.")
 
-flags.DEFINE_integer("eval_batch_size", 8, "Total batch size for eval.")
+flags.DEFINE_integer("eval_batch_size", 32, "Total batch size for eval.")
 
 flags.DEFINE_integer("predict_batch_size", 8, "Total batch size for predict.")
 
@@ -92,13 +97,13 @@ flags.DEFINE_float(
     "Proportion of training to perform linear learning rate warmup for. "
     "E.g., 0.1 = 10% of training.")
 
-flags.DEFINE_integer("save_checkpoints_steps", 1000,
+flags.DEFINE_integer("save_checkpoints_steps", 5000,
                      "How often to save the model checkpoint.")
 
 flags.DEFINE_integer("iterations_per_loop", 1000,
                      "How many steps to make in each estimator call.")
 
-flags.DEFINE_bool("use_tpu", False, "Whether to use TPU or GPU/CPU.")
+flags.DEFINE_bool("use_tpu", True, "Whether to use TPU or GPU/CPU.")
 
 tf.flags.DEFINE_string(
     "tpu_name", None,
@@ -121,7 +126,7 @@ tf.flags.DEFINE_string(
 tf.flags.DEFINE_string("master", None, "[Optional] TensorFlow master URL.")
 
 flags.DEFINE_integer(
-    "num_tpu_cores", 8,
+    "num_tpu_cores", 4,
     "Only used if `use_tpu` is True. Total number of TPU cores to use.")
 
 
@@ -212,10 +217,8 @@ def process_doc(doc):
 
 class NewsProcessor(DataProcessor):
     def __init__(self):
-        with open('F:/python/news_track/article_map.txt')as f:
-            self.aricle_map = json.loads(next(f))
-            from elasticsearch import Elasticsearch
-            self.es = Elasticsearch()
+        with open(data_dir + 'articles.txt','r',encoding='utf-8') as af:
+            self.articles = json.loads(next(af))
     def get_labels(self):
         return ['-1','0','2','4','8','16']
 
@@ -233,7 +236,7 @@ class NewsProcessor(DataProcessor):
     def get_test_examples(self, data_dir):
         """See base class."""
         return self._create_examples(
-            self._read_tsv(os.path.join(data_dir, "test_matched.tsv")), "test")
+            self._read_tsv(os.path.join(data_dir, "test.csv")), "test")
 
     def _create_examples(self, lines, set_type):
         """Creates examples for the training and dev sets."""
@@ -242,8 +245,8 @@ class NewsProcessor(DataProcessor):
             if i == 0:
                 continue
             guid = "%s-%s" % (set_type, str(i))
-            text_a = process_doc(self.es.get(index='news',id=line[0])['_source'])
-            text_b = process_doc(self.es.get(index='news', id=line[1])['_source'])
+            text_a = self.articles[line[0]]
+            text_b = self.articles[line[1]]
             text_a = tokenization.convert_to_unicode(text_a)
             text_b = tokenization.convert_to_unicode(text_b)
             if set_type == "test":

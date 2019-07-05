@@ -1,0 +1,527 @@
+login as: trec7
+     ┌────────────────────────────────────────────────────────────────────┐
+     │                        • MobaXterm 11.1 •                          │
+     │            (SSH client, X-server and networking tools)             │
+     │                                                                    │
+     │ ➤ SSH session to trec7@10.60.1.76                                  │
+     │   • SSH compression : ✔                                            │
+     │   • SSH-browser     : ✔                                            │
+     │   • X11-forwarding  : ✔  (remote display is forwarded through SSH) │
+     │   • DISPLAY         : ✔  (automatically set on remote server)      │
+     │                                                                    │
+     │ ➤ For more info, ctrl+click on help or visit our website           │
+     └────────────────────────────────────────────────────────────────────┘
+
+Last login: Tue Jul  2 01:15:54 2019 from 10.61.2.102
+欢迎访问GPU实验平台
+注意：公共平台请不要放重要数据。
+[trec7@comput76 ~]$ cd
+[trec7@comput76 ~]$ cd zzp
+[trec7@comput76 zzp]$ cdcode/bert
+-bash: cdcode/bert: 没有那个文件或目录
+[trec7@comput76 zzp]$ cd code/bert
+[trec7@comput76 bert]$ vim runclassifier.py
+
+[1]+  已停止               vim runclassifier.py
+[trec7@comput76 bert]$ vim run_classifier.py
+[trec7@comput76 bert]$ python runclassifier.py
+python: can't open file 'runclassifier.py': [Errno 2] No such file or directory
+[trec7@comput76 bert]$ python run_classifier.py
+/home/trec7/anaconda3/lib/python3.6/site-packages/h5py/__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
+  from ._conv import register_converters as _register_converters
+WARNING:tensorflow:Estimator's model_fn (<function model_fn_builder.<locals>.model_fn at 0x7ff58588e2f0>) includes params argument, but params are not passed to Estimator.
+INFO:tensorflow:Using config: {'_model_dir': '/home/trec7/zzp/model/ouput', '_tf_random_seed': None, '_save_summary_steps': 100, '_save_checkpoints_steps': 5000, '_save_checkpoints_secs': None, '_session_config': None, '_keep_checkpoint_max': 5, '_keep_checkpoint_every_n_hours': 10000, '_log_step_count_steps': None, '_train_distribute': None, '_device_fn': None, '_service': None, '_cluster_spec': <tensorflow.python.training.server_lib.ClusterSpec object at 0x7ff625216908>, '_task_type': 'worker', '_task_id': 0, '_global_id_in_cluster': 0, '_master': '', '_evaluation_master': '', '_is_chief': True, '_num_ps_replicas': 0, '_num_worker_replicas': 1, '_tpu_config': TPUConfig(iterations_per_loop=1000, num_shards=4, computation_shape=None, per_host_input_for_training=3, tpu_job_name=None, initial_infeed_sleep_secs=None), '_cluster': None}
+INFO:tensorflow:_TPUContext: eval_on_tpu True
+WARNING:tensorflow:eval_on_tpu ignored because use_tpu is False.
+INFO:tensorflow:Writing example 0 of 10782
+INFO:tensorflow:*** Example ***
+INFO:tensorflow:guid: dev_matched-1
+INFO:tensorflow:tokens: [CLS] there ’ s some really good news for low - wage workers this weekend . it has been a difficult year for the left politically , but at least with respect to the minimum wage , progressive activists had major victories — including in a couple of very red states . as a result , the minimum wage will increase in 19 states [SEP] in prince george ’ s , baker signs minimum wage bill , raising hourly rate to $ 11 . 50 by 2017 . prince george ’ s county executive rush ##ern l . baker iii ( d ) on tuesday signed into law a bill raising the county ’ s minimum wage to $ 11 . 50 by 2017 . at a [SEP]
+INFO:tensorflow:input_ids: 101 2045 1521 1055 2070 2428 2204 2739 2005 2659 1011 11897 3667 2023 5353 1012 2009 2038 2042 1037 3697 2095 2005 1996 2187 10317 1010 2021 2012 2560 2007 4847 2000 1996 6263 11897 1010 6555 10134 2018 2350 9248 1517 2164 1999 1037 3232 1997 2200 2417 2163 1012 2004 1037 2765 1010 1996 6263 11897 2097 3623 1999 2539 2163 102 1999 3159 2577 1521 1055 1010 6243 5751 6263 11897 3021 1010 6274 21462 3446 2000 1002 2340 1012 2753 2011 2418 1012 3159 2577 1521 1055 2221 3237 5481 11795 1048 1012 6243 3523 1006 1040 1007 2006 9857 2772 2046 2375 1037 3021 6274 1996 2221 1521 1055 6263 11897 2000 1002 2340 1012 2753 2011 2418 1012 2012 1037 102
+INFO:tensorflow:input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+INFO:tensorflow:segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+INFO:tensorflow:label: 4 (id = 3)
+INFO:tensorflow:*** Example ***
+INFO:tensorflow:guid: dev_matched-2
+INFO:tensorflow:tokens: [CLS] wild tiger numbers are up for the first time in a century . finally , some happy news for wild tigers , animals that are endangered because people traffic in their body parts and ra ##ze their habitats : the big cats ’ population is for the first time bouncing back after a century - long decline . the world wildlife fund says [SEP] the largest - ever survey of elephants in africa reveals startling declines . nairobi — africa ’ s elephant population has plunged faster than almost anyone predicted , raising startling questions about the failure to protect one of the world ' s largest mammals . there are now only 352 , 271 savanna elephants in nearly all of sub - saharan africa [SEP]
+INFO:tensorflow:input_ids: 101 3748 6816 3616 2024 2039 2005 1996 2034 2051 1999 1037 2301 1012 2633 1010 2070 3407 2739 2005 3748 7600 1010 4176 2008 2024 10193 2138 2111 4026 1999 2037 2303 3033 1998 10958 4371 2037 10746 1024 1996 2502 8870 1521 2313 2003 2005 1996 2034 2051 16361 2067 2044 1037 2301 1011 2146 6689 1012 1996 2088 6870 4636 2758 102 1996 2922 1011 2412 5002 1997 16825 1999 3088 7657 19828 26451 1012 21124 1517 3088 1521 1055 10777 2313 2038 16687 5514 2084 2471 3087 10173 1010 6274 19828 3980 2055 1996 4945 2000 4047 2028 1997 1996 2088 1005 1055 2922 11993 1012 2045 2024 2085 2069 28906 1010 25103 22323 16825 1999 3053 2035 1997 4942 1011 24505 3088 102
+INFO:tensorflow:input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+INFO:tensorflow:segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+INFO:tensorflow:label: 0 (id = 1)
+INFO:tensorflow:*** Example ***
+INFO:tensorflow:guid: dev_matched-3
+INFO:tensorflow:tokens: [CLS] post reporter jason reza ##ian and his family file federal lawsuit against iranian government . washington post reporter jason reza ##ian and his family filed a federal lawsuit monday against the iranian government , claiming he was taken hostage and psychological ##ly tortured during his 18 months in prison in an effort by tehran to influence negotiations for a nuclear agreement with iran [SEP] iran allows lawyer for post reporter , but not his choice . a washington post reporter imprisoned in iran has been granted access to an attorney — but not the one of his choosing . jason reza ##ian , who has been the paper ’ s tehran correspondent since 2012 and holds u . s . and iranian citizenship , has spent [SEP]
+INFO:tensorflow:input_ids: 101 2695 6398 4463 26323 2937 1998 2010 2155 5371 2976 9870 2114 7726 2231 1012 2899 2695 6398 4463 26323 2937 1998 2010 2155 6406 1037 2976 9870 6928 2114 1996 7726 2231 1010 6815 2002 2001 2579 13446 1998 8317 2135 12364 2076 2010 2324 2706 1999 3827 1999 2019 3947 2011 13503 2000 3747 7776 2005 1037 4517 3820 2007 4238 102 4238 4473 5160 2005 2695 6398 1010 2021 2025 2010 3601 1012 1037 2899 2695 6398 8580 1999 4238 2038 2042 4379 3229 2000 2019 4905 1517 2021 2025 1996 2028 1997 2010 10549 1012 4463 26323 2937 1010 2040 2038 2042 1996 3259 1521 1055 13503 11370 2144 2262 1998 4324 1057 1012 1055 1012 1998 7726 9068 1010 2038 2985 102
+INFO:tensorflow:input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+INFO:tensorflow:segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+INFO:tensorflow:label: 2 (id = 2)
+INFO:tensorflow:*** Example ***
+INFO:tensorflow:guid: dev_matched-4
+INFO:tensorflow:tokens: [CLS] the teenage activist wu ##nder ##kind who was among the first arrested in hong kong ’ s occupy central . “ i feel bored talking about electoral reform , ” the seasoned activist said . it was spring in hong kong , the current turmoil of occupy central more than four months away . hong kong ’ s sq ##ua ##bble ##s with [SEP] iran could use u . n . talks as cover to build bomb , ban ki - moon says . the united nations must be decisive and swift in judging whether diplomacy can resolve world concerns about iran ’ s nuclear program , u . n . secretary general ban ki - moon said thursday , or invite the risk that iran [SEP]
+INFO:tensorflow:input_ids: 101 1996 9454 7423 8814 11563 18824 2040 2001 2426 1996 2034 4727 1999 4291 4290 1521 1055 11494 2430 1012 1523 1045 2514 11471 3331 2055 6092 5290 1010 1524 1996 28223 7423 2056 1012 2009 2001 3500 1999 4291 4290 1010 1996 2783 17930 1997 11494 2430 2062 2084 2176 2706 2185 1012 4291 4290 1521 1055 5490 6692 11362 2015 2007 102 4238 2071 2224 1057 1012 1050 1012 7566 2004 3104 2000 3857 5968 1010 7221 11382 1011 4231 2758 1012 1996 2142 3741 2442 2022 13079 1998 9170 1999 13325 3251 17610 2064 10663 2088 5936 2055 4238 1521 1055 4517 2565 1010 1057 1012 1050 1012 3187 2236 7221 11382 1011 4231 2056 9432 1010 2030 13260 1996 3891 2008 4238 102
+INFO:tensorflow:input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+INFO:tensorflow:segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+INFO:tensorflow:label: -1 (id = 0)
+INFO:tensorflow:*** Example ***
+INFO:tensorflow:guid: dev_matched-5
+INFO:tensorflow:tokens: [CLS] don ’ t under ##est ##imate the cyber ##th ##rea ##t from syria and north korea . ted ko ##ppel is the author of “ lights out ” and senior contributor to “ cbs sunday morning . ” as the trump administration confronts the nuclear ambitions of north korea ’ s kim jong un and the toxic fallout from basha ##r al - [SEP] the sony hack : why would any outlet not report the so ##rdi ##d — and news ##y — details ? . the new york times is playing it safe on the sony documents . “ this is stolen material , ” new york times reporter jeremy peters said today on ms ##nbc ’ s “ morning joe . ” “ as [SEP]
+INFO:tensorflow:input_ids: 101 2123 1521 1056 2104 4355 21499 1996 16941 2705 16416 2102 2013 7795 1998 2167 4420 1012 6945 12849 27877 2003 1996 3166 1997 1523 4597 2041 1524 1998 3026 12130 2000 1523 6568 4465 2851 1012 1524 2004 1996 8398 3447 17628 1996 4517 19509 1997 2167 4420 1521 1055 5035 18528 4895 1998 1996 11704 23902 2013 26074 2099 2632 1011 102 1996 8412 20578 1024 2339 2052 2151 13307 2025 3189 1996 2061 17080 2094 1517 1998 2739 2100 1517 4751 1029 1012 1996 2047 2259 2335 2003 2652 2009 3647 2006 1996 8412 5491 1012 1523 2023 2003 7376 3430 1010 1524 2047 2259 2335 6398 7441 12420 2056 2651 2006 5796 28957 1521 1055 1523 2851 3533 1012 1524 1523 2004 102
+INFO:tensorflow:input_mask: 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+INFO:tensorflow:segment_ids: 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+INFO:tensorflow:label: 0 (id = 1)
+INFO:tensorflow:Writing example 10000 of 10782
+INFO:tensorflow:***** Running evaluation *****
+INFO:tensorflow:  Num examples = 10782 (10782 actual, 0 padding)
+INFO:tensorflow:  Batch size = 32
+INFO:tensorflow:Calling model_fn.
+INFO:tensorflow:Running eval on CPU
+INFO:tensorflow:*** Features ***
+INFO:tensorflow:  name = input_ids, shape = (?, 128)
+INFO:tensorflow:  name = input_mask, shape = (?, 128)
+INFO:tensorflow:  name = is_real_example, shape = (?,)
+INFO:tensorflow:  name = label_ids, shape = (?,)
+INFO:tensorflow:  name = segment_ids, shape = (?, 128)
+INFO:tensorflow:Initialize variable bert/embeddings/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/embeddings/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/embeddings/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/embeddings/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/embeddings/position_embeddings:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/embeddings/position_embeddings
+INFO:tensorflow:Initialize variable bert/embeddings/token_type_embeddings:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/embeddings/token_type_embeddings
+INFO:tensorflow:Initialize variable bert/embeddings/word_embeddings:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/embeddings/word_embeddings
+INFO:tensorflow:Initialize variable bert/encoder/layer_0/attention/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_0/attention/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_0/attention/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_0/attention/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_0/attention/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_0/attention/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_0/attention/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_0/attention/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_0/attention/self/key/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_0/attention/self/key/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_0/attention/self/key/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_0/attention/self/key/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_0/attention/self/query/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_0/attention/self/query/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_0/attention/self/query/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_0/attention/self/query/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_0/attention/self/value/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_0/attention/self/value/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_0/attention/self/value/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_0/attention/self/value/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_0/intermediate/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_0/intermediate/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_0/intermediate/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_0/intermediate/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_0/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_0/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_0/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_0/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_0/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_0/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_0/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_0/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_1/attention/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_1/attention/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_1/attention/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_1/attention/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_1/attention/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_1/attention/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_1/attention/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_1/attention/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_1/attention/self/key/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_1/attention/self/key/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_1/attention/self/key/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_1/attention/self/key/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_1/attention/self/query/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_1/attention/self/query/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_1/attention/self/query/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_1/attention/self/query/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_1/attention/self/value/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_1/attention/self/value/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_1/attention/self/value/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_1/attention/self/value/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_1/intermediate/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_1/intermediate/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_1/intermediate/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_1/intermediate/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_1/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_1/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_1/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_1/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_1/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_1/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_1/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_1/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_10/attention/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_10/attention/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_10/attention/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_10/attention/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_10/attention/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_10/attention/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_10/attention/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_10/attention/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_10/attention/self/key/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_10/attention/self/key/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_10/attention/self/key/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_10/attention/self/key/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_10/attention/self/query/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_10/attention/self/query/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_10/attention/self/query/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_10/attention/self/query/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_10/attention/self/value/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_10/attention/self/value/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_10/attention/self/value/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_10/attention/self/value/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_10/intermediate/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_10/intermediate/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_10/intermediate/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_10/intermediate/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_10/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_10/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_10/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_10/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_10/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_10/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_10/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_10/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_11/attention/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_11/attention/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_11/attention/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_11/attention/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_11/attention/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_11/attention/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_11/attention/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_11/attention/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_11/attention/self/key/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_11/attention/self/key/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_11/attention/self/key/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_11/attention/self/key/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_11/attention/self/query/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_11/attention/self/query/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_11/attention/self/query/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_11/attention/self/query/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_11/attention/self/value/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_11/attention/self/value/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_11/attention/self/value/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_11/attention/self/value/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_11/intermediate/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_11/intermediate/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_11/intermediate/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_11/intermediate/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_11/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_11/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_11/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_11/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_11/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_11/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_11/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_11/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_2/attention/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_2/attention/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_2/attention/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_2/attention/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_2/attention/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_2/attention/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_2/attention/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_2/attention/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_2/attention/self/key/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_2/attention/self/key/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_2/attention/self/key/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_2/attention/self/key/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_2/attention/self/query/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_2/attention/self/query/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_2/attention/self/query/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_2/attention/self/query/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_2/attention/self/value/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_2/attention/self/value/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_2/attention/self/value/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_2/attention/self/value/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_2/intermediate/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_2/intermediate/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_2/intermediate/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_2/intermediate/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_2/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_2/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_2/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_2/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_2/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_2/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_2/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_2/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_3/attention/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_3/attention/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_3/attention/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_3/attention/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_3/attention/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_3/attention/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_3/attention/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_3/attention/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_3/attention/self/key/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_3/attention/self/key/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_3/attention/self/key/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_3/attention/self/key/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_3/attention/self/query/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_3/attention/self/query/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_3/attention/self/query/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_3/attention/self/query/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_3/attention/self/value/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_3/attention/self/value/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_3/attention/self/value/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_3/attention/self/value/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_3/intermediate/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_3/intermediate/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_3/intermediate/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_3/intermediate/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_3/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_3/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_3/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_3/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_3/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_3/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_3/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_3/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_4/attention/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_4/attention/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_4/attention/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_4/attention/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_4/attention/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_4/attention/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_4/attention/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_4/attention/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_4/attention/self/key/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_4/attention/self/key/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_4/attention/self/key/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_4/attention/self/key/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_4/attention/self/query/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_4/attention/self/query/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_4/attention/self/query/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_4/attention/self/query/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_4/attention/self/value/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_4/attention/self/value/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_4/attention/self/value/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_4/attention/self/value/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_4/intermediate/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_4/intermediate/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_4/intermediate/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_4/intermediate/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_4/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_4/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_4/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_4/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_4/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_4/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_4/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_4/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_5/attention/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_5/attention/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_5/attention/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_5/attention/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_5/attention/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_5/attention/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_5/attention/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_5/attention/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_5/attention/self/key/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_5/attention/self/key/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_5/attention/self/key/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_5/attention/self/key/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_5/attention/self/query/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_5/attention/self/query/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_5/attention/self/query/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_5/attention/self/query/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_5/attention/self/value/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_5/attention/self/value/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_5/attention/self/value/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_5/attention/self/value/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_5/intermediate/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_5/intermediate/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_5/intermediate/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_5/intermediate/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_5/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_5/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_5/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_5/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_5/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_5/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_5/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_5/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_6/attention/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_6/attention/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_6/attention/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_6/attention/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_6/attention/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_6/attention/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_6/attention/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_6/attention/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_6/attention/self/key/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_6/attention/self/key/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_6/attention/self/key/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_6/attention/self/key/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_6/attention/self/query/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_6/attention/self/query/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_6/attention/self/query/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_6/attention/self/query/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_6/attention/self/value/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_6/attention/self/value/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_6/attention/self/value/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_6/attention/self/value/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_6/intermediate/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_6/intermediate/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_6/intermediate/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_6/intermediate/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_6/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_6/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_6/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_6/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_6/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_6/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_6/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_6/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_7/attention/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_7/attention/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_7/attention/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_7/attention/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_7/attention/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_7/attention/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_7/attention/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_7/attention/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_7/attention/self/key/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_7/attention/self/key/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_7/attention/self/key/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_7/attention/self/key/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_7/attention/self/query/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_7/attention/self/query/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_7/attention/self/query/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_7/attention/self/query/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_7/attention/self/value/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_7/attention/self/value/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_7/attention/self/value/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_7/attention/self/value/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_7/intermediate/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_7/intermediate/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_7/intermediate/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_7/intermediate/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_7/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_7/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_7/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_7/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_7/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_7/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_7/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_7/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_8/attention/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_8/attention/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_8/attention/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_8/attention/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_8/attention/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_8/attention/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_8/attention/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_8/attention/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_8/attention/self/key/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_8/attention/self/key/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_8/attention/self/key/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_8/attention/self/key/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_8/attention/self/query/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_8/attention/self/query/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_8/attention/self/query/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_8/attention/self/query/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_8/attention/self/value/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_8/attention/self/value/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_8/attention/self/value/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_8/attention/self/value/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_8/intermediate/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_8/intermediate/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_8/intermediate/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_8/intermediate/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_8/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_8/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_8/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_8/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_8/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_8/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_8/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_8/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_9/attention/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_9/attention/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_9/attention/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_9/attention/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_9/attention/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_9/attention/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_9/attention/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_9/attention/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_9/attention/self/key/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_9/attention/self/key/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_9/attention/self/key/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_9/attention/self/key/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_9/attention/self/query/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_9/attention/self/query/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_9/attention/self/query/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_9/attention/self/query/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_9/attention/self/value/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_9/attention/self/value/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_9/attention/self/value/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_9/attention/self/value/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_9/intermediate/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_9/intermediate/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_9/intermediate/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_9/intermediate/dense/kernel
+INFO:tensorflow:Initialize variable bert/encoder/layer_9/output/LayerNorm/beta:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_9/output/LayerNorm/beta
+INFO:tensorflow:Initialize variable bert/encoder/layer_9/output/LayerNorm/gamma:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_9/output/LayerNorm/gamma
+INFO:tensorflow:Initialize variable bert/encoder/layer_9/output/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_9/output/dense/bias
+INFO:tensorflow:Initialize variable bert/encoder/layer_9/output/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/encoder/layer_9/output/dense/kernel
+INFO:tensorflow:Initialize variable bert/pooler/dense/bias:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/pooler/dense/bias
+INFO:tensorflow:Initialize variable bert/pooler/dense/kernel:0 from checkpoint /home/trec7/zzp/model/bert_model.ckpt with bert/pooler/dense/kernel
+INFO:tensorflow:**** Trainable Variables ****
+INFO:tensorflow:  name = bert/embeddings/word_embeddings:0, shape = (30522, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/embeddings/token_type_embeddings:0, shape = (2, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/embeddings/position_embeddings:0, shape = (512, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/embeddings/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/embeddings/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_0/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_0/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_0/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_0/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_0/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_0/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_0/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_0/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_0/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_0/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_0/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_0/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_0/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_0/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_0/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_0/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_1/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_1/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_1/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_1/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_1/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_1/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_1/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_1/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_1/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_1/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_1/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_1/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_1/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_1/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_1/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_1/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_2/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_2/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_2/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_2/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_2/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_2/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_2/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_2/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_2/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_2/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_2/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_2/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_2/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_2/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_2/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_2/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_3/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_3/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_3/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_3/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_3/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_3/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_3/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_3/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_3/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_3/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_3/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_3/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_3/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_3/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_3/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_3/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_4/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_4/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_4/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_4/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_4/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_4/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_4/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_4/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_4/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_4/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_4/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_4/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_4/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_4/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_4/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_4/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_5/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_5/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_5/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_5/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_5/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_5/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_5/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_5/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_5/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_5/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_5/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_5/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_5/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_5/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_5/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_5/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_6/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_6/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_6/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_6/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_6/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_6/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_6/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_6/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_6/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_6/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_6/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_6/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_6/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_6/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_6/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_6/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_7/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_7/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_7/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_7/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_7/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_7/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_7/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_7/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_7/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_7/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_7/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_7/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_7/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_7/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_7/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_7/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_8/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_8/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_8/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_8/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_8/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_8/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_8/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_8/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_8/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_8/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_8/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_8/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_8/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_8/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_8/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_8/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_9/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_9/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_9/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_9/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_9/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_9/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_9/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_9/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_9/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_9/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_9/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_9/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_9/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_9/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_9/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_9/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_10/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_10/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_10/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_10/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_10/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_10/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_10/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_10/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_10/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_10/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_10/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_10/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_10/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_10/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_10/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_10/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_11/attention/self/query/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_11/attention/self/query/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_11/attention/self/key/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_11/attention/self/key/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_11/attention/self/value/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_11/attention/self/value/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_11/attention/output/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_11/attention/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_11/attention/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_11/attention/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_11/intermediate/dense/kernel:0, shape = (768, 3072), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_11/intermediate/dense/bias:0, shape = (3072,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_11/output/dense/kernel:0, shape = (3072, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_11/output/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_11/output/LayerNorm/beta:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/encoder/layer_11/output/LayerNorm/gamma:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/pooler/dense/kernel:0, shape = (768, 768), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = bert/pooler/dense/bias:0, shape = (768,), *INIT_FROM_CKPT*
+INFO:tensorflow:  name = output_weights:0, shape = (6, 768)
+INFO:tensorflow:  name = output_bias:0, shape = (6,)
+INFO:tensorflow:Done calling model_fn.
+INFO:tensorflow:Starting evaluation at 2019-07-02-00:13:31
+INFO:tensorflow:Graph was finalized.
+2019-07-02 08:13:31.772345: I tensorflow/core/platform/cpu_feature_guard.cc:141] Your CPU supports instructions that this TensorFlow binary was not compiled to use: SSE4.1 SSE4.2 AVX AVX2 FMA
+2019-07-02 08:13:40.072795: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1392] Found device 0 with properties:
+name: Tesla K80 major: 3 minor: 7 memoryClockRate(GHz): 0.8235
+pciBusID: 0000:84:00.0
+totalMemory: 11.17GiB freeMemory: 11.10GiB
+2019-07-02 08:13:40.236538: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1392] Found device 1 with properties:
+name: Tesla K80 major: 3 minor: 7 memoryClockRate(GHz): 0.8235
+pciBusID: 0000:85:00.0
+totalMemory: 11.17GiB freeMemory: 11.10GiB
+2019-07-02 08:13:40.402951: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1392] Found device 2 with properties:
+name: Tesla K80 major: 3 minor: 7 memoryClockRate(GHz): 0.8235
+pciBusID: 0000:88:00.0
+totalMemory: 11.17GiB freeMemory: 11.10GiB
+2019-07-02 08:13:40.559517: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1392] Found device 3 with properties:
+name: Tesla K80 major: 3 minor: 7 memoryClockRate(GHz): 0.8235
+pciBusID: 0000:89:00.0
+totalMemory: 11.17GiB freeMemory: 11.10GiB
+2019-07-02 08:13:40.561284: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1471] Adding visible gpu devices: 0, 1, 2, 3
+2019-07-02 08:13:41.592181: I tensorflow/core/common_runtime/gpu/gpu_device.cc:952] Device interconnect StreamExecutor with strength 1 edge matrix:
+2019-07-02 08:13:41.592244: I tensorflow/core/common_runtime/gpu/gpu_device.cc:958]      0 1 2 3
+2019-07-02 08:13:41.592255: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] 0:   N Y Y Y
+2019-07-02 08:13:41.592262: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] 1:   Y N Y Y
+2019-07-02 08:13:41.592268: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] 2:   Y Y N Y
+2019-07-02 08:13:41.592275: I tensorflow/core/common_runtime/gpu/gpu_device.cc:971] 3:   Y Y Y N
+2019-07-02 08:13:41.593189: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1084] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:0 with 10762 MB memory) -> physical GPU (device: 0, name: Tesla K80, pci bus id: 0000:84:00.0, compute capability: 3.7)
+2019-07-02 08:13:41.699293: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1084] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:1 with 10762 MB memory) -> physical GPU (device: 1, name: Tesla K80, pci bus id: 0000:85:00.0, compute capability: 3.7)
+2019-07-02 08:13:41.805857: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1084] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:2 with 10762 MB memory) -> physical GPU (device: 2, name: Tesla K80, pci bus id: 0000:88:00.0, compute capability: 3.7)
+2019-07-02 08:13:41.911586: I tensorflow/core/common_runtime/gpu/gpu_device.cc:1084] Created TensorFlow device (/job:localhost/replica:0/task:0/device:GPU:3 with 10762 MB memory) -> physical GPU (device: 3, name: Tesla K80, pci bus id: 0000:89:00.0, compute capability: 3.7)
+INFO:tensorflow:Restoring parameters from /home/trec7/zzp/model/ouput/model.ckpt-6738
+INFO:tensorflow:Running local_init_op.
+INFO:tensorflow:Done running local_init_op.
+INFO:tensorflow:Finished evaluation at 2019-07-02-00:16:31
+INFO:tensorflow:Saving dict for global step 6738: eval_accuracy = 0.9411983, eval_loss = 0.23055488, global_step = 6738, loss = 0.23051399
+INFO:tensorflow:Saving 'checkpoint_path' summary for global step 6738: /home/trec7/zzp/model/ouput/model.ckpt-6738
+INFO:tensorflow:***** Eval results *****
+INFO:tensorflow:  eval_accuracy = 0.9411983
+INFO:tensorflow:  eval_loss = 0.23055488
+INFO:tensorflow:  global_step = 6738
+INFO:tensorflow:  loss = 0.23051399
+[trec7@comput76 bert]$

@@ -1,10 +1,10 @@
 from elasticsearch import Elasticsearch
 from RAKE.rake import Rake
 
-from get_topics import get_topics
+from utils import get_topics
 
 
-host_ip = '222.20.25.124'
+# host_ip = '222.20.25.124'
 # es = Elasticsearch('222.20.25.124:9200')
 es= Elasticsearch()
 
