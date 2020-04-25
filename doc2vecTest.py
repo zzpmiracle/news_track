@@ -87,8 +87,8 @@ with open(map_file,'w') as mf:
 # docs_generator = text_Generator(file_path)
 # docs_iterator = [x for x in docs_generator]
 
-fname = 'vectors.kv'
-model = Doc2Vec(documents=docs,vector_size=100,window=10,min_count=2,workers=10)
-model.save(fname)
+# fname = 'vectors.kv'
+# model = Doc2Vec(documents=docs,vector_size=100,window=10,min_count=2,workers=10)
+# model.save(fname)
 end = time.time()
 print('{:.1f}s'.format(end-start))

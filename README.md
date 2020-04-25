@@ -42,8 +42,13 @@
 
 nearly irrelevant
 
-### Next plans
+### BERT
 
-* other keyword extraction algorithm
-* divide into 5 relevance level
-* other algorithm to judge relevance
+* #### Dataset
+
+  * relevant:2018 relevance judgments,labels:0-16
+  * irrelevant : add 10000 random sample,labels:-1
+
+* #### Processor
+
+  * id——>text

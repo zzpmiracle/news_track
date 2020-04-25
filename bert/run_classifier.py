@@ -20,40 +20,46 @@ from __future__ import print_function
 
 import collections
 import csv
+import json
 import os
 import modeling
 import optimization
 import tokenization
 import tensorflow as tf
 
+base_dir = '/home/trec7/zzp/'
+
+model_path = base_dir + 'model/'
+data_dir = base_dir + 'data/'
 flags = tf.flags
 
 FLAGS = flags.FLAGS
 
+
 ## Required parameters
 flags.DEFINE_string(
-    "data_dir", None,
+    "data_dir", base_dir + 'data',
     "The input data dir. Should contain the .tsv files (or other data files) "
     "for the task.")
 
 flags.DEFINE_string(
-    "bert_config_file", None,
+    "bert_config_file", model_path+'bert_config.json',
     "The config json file corresponding to the pre-trained BERT model. "
     "This specifies the model architecture.")
 
-flags.DEFINE_string("task_name", None, "The name of the task to train.")
+flags.DEFINE_string("task_name", 'news', "The name of the task to train.")
 
-flags.DEFINE_string("vocab_file", None,
+flags.DEFINE_string("vocab_file", model_path+'vocab.txt',
                     "The vocabulary file that the BERT model was trained on.")
 
 flags.DEFINE_string(
-    "output_dir", None,
+    "output_dir", model_path + 'ouput',
     "The output directory where the model checkpoints will be written.")
 
 ## Other parameters
 
 flags.DEFINE_string(
-    "init_checkpoint", None,
+    "init_checkpoint", model_path+'bert_model.ckpt',
     "Initial checkpoint (usually from a pre-trained BERT model).")
 
 flags.DEFINE_bool(
@@ -67,9 +73,9 @@ flags.DEFINE_integer(
     "Sequences longer than this will be truncated, and sequences shorter "
     "than this will be padded.")
 
-flags.DEFINE_bool("do_train", False, "Whether to run training.")
+flags.DEFINE_bool("do_train", True, "Whether to run training.")
 
-flags.DEFINE_bool("do_eval", False, "Whether to run eval on the dev set.")
+flags.DEFINE_bool("do_eval", True, "Whether to run eval on the dev set.")
 
 flags.DEFINE_bool(
     "do_predict", False,
@@ -77,13 +83,13 @@ flags.DEFINE_bool(
 
 flags.DEFINE_integer("train_batch_size", 32, "Total batch size for training.")
 
-flags.DEFINE_integer("eval_batch_size", 8, "Total batch size for eval.")
+flags.DEFINE_integer("eval_batch_size", 32, "Total batch size for eval.")
 
 flags.DEFINE_integer("predict_batch_size", 8, "Total batch size for predict.")
 
 flags.DEFINE_float("learning_rate", 5e-5, "The initial learning rate for Adam.")
 
-flags.DEFINE_float("num_train_epochs", 3.0,
+flags.DEFINE_float("num_train_epochs", 5.0,
                    "Total number of training epochs to perform.")
 
 flags.DEFINE_float(
@@ -91,13 +97,13 @@ flags.DEFINE_float(
     "Proportion of training to perform linear learning rate warmup for. "
     "E.g., 0.1 = 10% of training.")
 
-flags.DEFINE_integer("save_checkpoints_steps", 1000,
+flags.DEFINE_integer("save_checkpoints_steps", 5000,
                      "How often to save the model checkpoint.")
 
 flags.DEFINE_integer("iterations_per_loop", 1000,
                      "How many steps to make in each estimator call.")
 
-flags.DEFINE_bool("use_tpu", False, "Whether to use TPU or GPU/CPU.")
+flags.DEFINE_bool("use_tpu", True, "Whether to use TPU or GPU/CPU.")
 
 tf.flags.DEFINE_string(
     "tpu_name", None,
@@ -120,7 +126,7 @@ tf.flags.DEFINE_string(
 tf.flags.DEFINE_string("master", None, "[Optional] TensorFlow master URL.")
 
 flags.DEFINE_integer(
-    "num_tpu_cores", 8,
+    "num_tpu_cores", 4,
     "Only used if `use_tpu` is True. Total number of TPU cores to use.")
 
 
@@ -197,18 +203,60 @@ class DataProcessor(object):
   def _read_tsv(cls, input_file, quotechar=None):
     """Reads a tab separated value file."""
     with tf.gfile.Open(input_file, "r") as f:
-      reader = csv.reader(f, delimiter="\t", quotechar=quotechar)
+      reader = csv.reader(f, delimiter=",", quotechar=quotechar)
       lines = []
       for line in reader:
         lines.append(line)
       return lines
+def process_doc(doc):
+    if not doc['title']:
+        return doc['contents']
+    doc_string = doc['title']+'.'+doc['contents']
+    doc_string = doc_string.replace('\n','').replace('\t','')
+    return doc_string
 
 class NewsProcessor(DataProcessor):
     def __init__(self):
-        self.language = 'en'
+        with open(data_dir + 'articles.txt','r',encoding='utf-8') as af:
+            self.articles = json.loads(next(af))
     def get_labels(self):
         return ['-1','0','2','4','8','16']
+
     def get_train_examples(self, data_dir):
+        """See base class."""
+        return self._create_examples(
+            self._read_tsv(os.path.join(data_dir, "train.csv")), "train")
+
+    def get_dev_examples(self, data_dir):
+        """See base class."""
+        return self._create_examples(
+            self._read_tsv(os.path.join(data_dir, "dev.csv")),
+            "dev_matched")
+
+    def get_test_examples(self, data_dir):
+        """See base class."""
+        return self._create_examples(
+            self._read_tsv(os.path.join(data_dir, "test.csv")), "test")
+
+    def _create_examples(self, lines, set_type):
+        """Creates examples for the training and dev sets."""
+        examples = []
+        for (i, line) in enumerate(lines):
+            if i == 0:
+                continue
+            guid = "%s-%s" % (set_type, str(i))
+            text_a = self.articles[line[0]]
+            text_b = self.articles[line[1]]
+            text_a = tokenization.convert_to_unicode(text_a)
+            text_b = tokenization.convert_to_unicode(text_b)
+            if set_type == "test":
+                label = "-1"
+            else:
+                label = tokenization.convert_to_unicode(line[-1])
+            examples.append(
+                InputExample(guid=guid, text_a=text_a, text_b=text_b, label=label))
+        return examples
+
         
 
 class XnliProcessor(DataProcessor):
@@ -981,9 +1029,4 @@ def main(_):
 
 
 if __name__ == "__main__":
-  flags.mark_flag_as_required("data_dir")
-  flags.mark_flag_as_required("task_name")
-  flags.mark_flag_as_required("vocab_file")
-  flags.mark_flag_as_required("bert_config_file")
-  flags.mark_flag_as_required("output_dir")
   tf.app.run()
